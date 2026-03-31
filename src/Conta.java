@@ -47,13 +47,18 @@ public abstract class Conta {
     }
 
     public void depositar(double valor){
-        saldo += valor;
-        IO.println("Depositado com sucesso!");
+        if (valor > 0){
+            saldo += valor;
+            IO.println("Depositado com sucesso!");
+        }else {
+            IO.println("Erro ao depositar!");
+        }
+
     }
 
     public void sacar(double valor){
 
-        if (saldo >= valor){
+        if (saldo >= valor && valor > 0){
             saldo -= valor;
             IO.println("Sacado com sucesso!");
         }
